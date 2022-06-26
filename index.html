@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Splitter</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <h1 class="display-4">Beach Volleyball</h1>
+        <h1 class="display-1" style="font-size: 100px; font-weight: 500">
+          Team Splitter
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic dolorem
+          eum deleniti sit nesciunt aliquid impedit iusto voluptatum id a rem
+          quod ducimus aperiam assumenda rerum quidem asperiores nemo, amet,
+          architecto earum sed eius voluptas! Aspernatur, ea deleniti
+          necessitatibus iste itaque temporibus. Odit cum sapiente dolorem quasi
+          voluptatibus quos ab.
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div id="table">
+          <table class="table">
+            <tr>
+              <th>Name</th>
+              <th>Level</th>
+              <th>
+                <span class="table-add">
+                  <i class="bi bi-person-plus-fill"></i>
+                </span>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" class="name-input" value="Songhai Fan" />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="level-input"
+                  min="1"
+                  max="5"
+                  value="2"
+                />
+              </td>
+              <td>
+                <span class="table-remove">
+                  <i class="bi bi-person-dash"></i>
+                </span>
+              </td>
+            </tr>
+            <!-- This is our clonable table line -->
+            <tr class="hide">
+              <td>
+                <input type="text" class="name-input" value="Undifined" />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="level-input"
+                  min="1"
+                  max="5"
+                  value="2"
+                />
+              </td>
+              <td>
+                <span class="table-remove">
+                  <i class="bi bi-person-dash"></i>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <button id="export-btn" class="btn btn-primary">
+          Split into two groups
+        </button>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <p>  
+            <h5>Team 1</h5>
+            <ul id="team1-list" class="list-group"></ul>
+          </p>       
+        </div>
+        <div class="col-sm">
+          <p>
+            <h5>Team 2</h5>
+            <ul id="team2-list" class="list-group"></ul>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>

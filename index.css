@@ -1,0 +1,50 @@
+.table-remove {
+  color: #700;
+  cursor: pointer;
+}
+
+.table-remove:hover {
+  color: #f00;
+}
+
+.table-up,
+.table-down {
+  color: #007;
+  cursor: pointer;
+}
+
+.table-up:hover,
+.table-down:hover {
+  color: #00f;
+}
+
+.table-add {
+  color: #070;
+  cursor: pointer;
+}
+
+.table-add:hover {
+  color: #0b0;
+}
+
+.hide {
+  display: none;
+}
+
+.header {
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  background-image: linear-gradient(transparent, #e9ecef),
+    url(beach_volleyball.gif);
+  background-repeat: no-repeat;
+  text-align: center;
+  border-radius: 0.3rem;
+}
+
+@media (min-width: 1000px) {
+  .header {
+    background-image: url(beach_volleyball.gif);
+    background-position: right;
+  }
+}
