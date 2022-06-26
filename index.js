@@ -1,10 +1,10 @@
-var $TABLE = $("#table");
-var $BTN = $("#export-btn");
-var $TEAM1 = $("#team1-list");
-var $TEAM2 = $("#team2-list");
+const $TABLE = $("#table");
+const $BTN = $("#split-btn");
+const $TEAM1 = $("#team1-list");
+const $TEAM2 = $("#team2-list");
 
 $(".table-add").click(function () {
-  var $clone = $TABLE.find("tr.hide").clone(true).removeClass("hide");
+  const $clone = $TABLE.find("tr.hide").clone(true).removeClass("hide");
   $TABLE.find("table").append($clone);
 });
 
@@ -56,7 +56,9 @@ function levelDiff(kyArray) {
 
 const renderTable = (tableSlot, arrayDetails) =>
   arrayDetails.forEach((x) =>
-    tableSlot.append(`<li class="list-group-item">${x.name}</li>`)
+    tableSlot.append(
+      `<li class="list-group-item">${x.name} <span class="badge bg-primary">${x.level}</span></li>`
+    )
   );
 
 function shuffleArray(array) {
@@ -96,7 +98,7 @@ function smartSplit(left, right = [], diff = 0) {
 
   let mdiff = levelDiff(left.concat(right));
 
-  for (let tdiff = 1; tdiff < mdiff; tdiff++) {
+  for (let tdiff = 1; tdiff <= 5; tdiff++) {
     let solution = smartSplit(left, right, tdiff);
     if (solution) {
       return solution;
