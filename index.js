@@ -2,6 +2,7 @@ const $TABLE = $("#table");
 const $BTN = $("#split-btn");
 const $TEAM1 = $("#team1-list");
 const $TEAM2 = $("#team2-list");
+const $INFO = $("#info");
 
 $(".table-add").click(function () {
   const $clone = $TABLE.find("tr.hide").clone(true).removeClass("hide");
@@ -11,6 +12,16 @@ $(".table-add").click(function () {
 $(".table-remove").click(function () {
   $(this).parents("tr").detach();
 });
+
+function info_diff(diff) {
+  if (diff == 0) {
+    return "Well matched";
+  } else if (diff < 3) {
+    return "Fair enough";
+  } else {
+    return "Lopsided";
+  }
+}
 
 $BTN.click(function () {
   const $rows = $TABLE.find("tr:not(:hidden)");
@@ -32,6 +43,8 @@ $BTN.click(function () {
   $TEAM1.empty();
   $TEAM2.empty();
 
+  $INFO.text(info_diff(diff));
+
   renderTable($TEAM1, left);
   renderTable($TEAM2, right);
 });
@@ -45,20 +58,10 @@ const mapKeyValue = (htmlArray) =>
   });
 
 const levelSum = (kyArray) => kyArray.reduce((ps, x) => ps + +x.level, 0);
-const levelMin = (kyArray) => Math.min(...kyArray.map((x) => +x.level));
-
-function levelDiff(kyArray) {
-  let sorted = kyArray.slice().sort((a, b) => a.level - b.level);
-  let size = Math.round(kyArray.length / 2);
-  let diffMax = levelSum(sorted.slice(size)) - levelSum(sorted.slice(0, size));
-  return diffMax;
-}
 
 const renderTable = (tableSlot, arrayDetails) =>
   arrayDetails.forEach((x) =>
-    tableSlot.append(
-      `<li class="list-group-item">${x.name} <span class="badge bg-primary">${x.level}</span></li>`
-    )
+    tableSlot.append(`<li class="list-group-item">${x.name}</li>`)
   );
 
 function shuffleArray(array) {
@@ -95,8 +98,6 @@ function smartSplit(left, right = [], diff = 0) {
   if (right | (diff > 0)) {
     return;
   }
-
-  let mdiff = levelDiff(left.concat(right));
 
   for (let tdiff = 1; tdiff <= 5; tdiff++) {
     let solution = smartSplit(left, right, tdiff);
